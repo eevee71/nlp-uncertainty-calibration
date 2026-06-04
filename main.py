@@ -5,7 +5,10 @@ from sklearn.model_selection import train_test_split
 
 from src.data_loader import DisasterDataLoader
 from src.metrics import CalibrationAnalyzer
-from src.models import (run_logistic_regression, run_mlp_embeddings, run_lstm, run_transformer)
+from src.models.logistic_regression import run_logistic_regression
+from src.models.mlp_embeddings import run_mlp_embeddings
+from src.models.lstm_net import run_lstm
+from src.models.transformer_net import run_transformer
 from src.calibration import TemperatureScaler, IsotonicCalibrator
 from src.rejection import RejectionMechanism
 
