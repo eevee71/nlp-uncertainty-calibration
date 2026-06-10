@@ -1,0 +1,154 @@
+STARTING PIPELINE: TRAINING & INDIVIDUAL CALIBRATION
+
+-> Processing Model: Logistic Regression TF-IDF <-
+
+Training TF-IDF + Logistic Regression
+
+[BASELINE] Evaluating uncalibrated Logistic Regression TF-IDF
+
+=== Logistic Regression TF-IDF (Base) - Standard Metrics ===
+Accuracy:  0.7932
+Precision: 0.8025
+Recall:    0.6826
+F1 Score:  0.7377
+[Logistic Regression TF-IDF (Base)] Expected Calibration Error (ECE): 0.0870
+
+--- Logistic Regression TF-IDF (Base) - Top 3 Highly Confident Errors ---
+Confidence: 0.9171 | True Label: 1 | Predicted: 0
+Tweet: all that panicking made me tired ;__; i want to sleep in my bed
+
+Confidence: 0.9043 | True Label: 1 | Predicted: 0
+Tweet: Hellfire! We don't even want to think about it or mention it so let's not do anything that leads to it #islam!
+
+Confidence: 0.9014 | True Label: 1 | Predicted: 0
+Tweet: @PianoHands You don't know because you don't smoke. The way to make taxis and buses come is to light a cigarette to smoke while you wait.
+
+
+[CALIBRATION] Fitting Temperature Scaling & Isotonic Regression...
+  scaled_probs = 1.0 / (1.0 + np.exp(-scaled_logits))
+
+[CALIBRATION RESULT] Comparing ECE values for Logistic Regression TF-IDF:
+[Logistic Regression TF-IDF (Temp Scaling)] Expected Calibration Error (ECE): 0.0265
+[Logistic Regression TF-IDF (Isotonic)] Expected Calibration Error (ECE): 0.0322
+Individual reliability diagrams saved to figures/ folder.
+------------------------------------------------------------
+
+-> Processing Model: MLP Embeddings <-
+
+Extracting MiniLM Embeddings & Training MLP
+
+[BASELINE] Evaluating uncalibrated MLP Embeddings
+
+=== MLP Embeddings (Base) - Standard Metrics ===
+Accuracy:  0.7800
+Precision: 0.7343
+Recall:    0.7581
+F1 Score:  0.7460
+[MLP Embeddings (Base)] Expected Calibration Error (ECE): 0.1707
+
+--- MLP Embeddings (Base) - Top 3 Highly Confident Errors ---
+Confidence: 1.0000 | True Label: 0 | Predicted: 1
+Tweet: @joshcorman  #infosec rather you knew it or not your a firefighter  now days  you often  run into burning buildings Deal with it.
+
+Confidence: 1.0000 | True Label: 0 | Predicted: 1
+Tweet: I think that none of us know the impact we have on the lives of those around us. Even the slightest stirring can create a violent storm.
+
+Confidence: 1.0000 | True Label: 1 | Predicted: 0
+Tweet: Fotoset: elanorofrohan: 10th December 2013 Green Carpet in Zurich for the Swiss Premiere of The Desolation... http://t.co/BQ3P7n7w06
+
+
+[CALIBRATION] Fitting Temperature Scaling & Isotonic Regression...
+
+[CALIBRATION RESULT] Comparing ECE values for MLP Embeddings:
+[MLP Embeddings (Temp Scaling)] Expected Calibration Error (ECE): 0.0258
+[MLP Embeddings (Isotonic)] Expected Calibration Error (ECE): 0.0328
+Individual reliability diagrams saved to figures/ folder.
+------------------------------------------------------------
+
+-> Processing Model: LSTM Recurrent Net <-
+
+Training PyTorch LSTM
+
+[BASELINE] Evaluating uncalibrated LSTM Recurrent Net
+
+=== LSTM Recurrent Net (Base) - Standard Metrics ===
+Accuracy:  0.7702
+Precision: 0.7774
+Recall:    0.6456
+F1 Score:  0.7054
+[LSTM Recurrent Net (Base)] Expected Calibration Error (ECE): 0.0680
+
+--- LSTM Recurrent Net (Base) - Top 3 Highly Confident Errors ---
+Confidence: 0.9885 | True Label: 0 | Predicted: 1
+Tweet: dogs Lightning reshapes rocks at the atomic level - A lightning strike can reshape a mineral's crystal structure ... http://t.co/2Wvmij5SA4
+
+Confidence: 0.9878 | True Label: 0 | Predicted: 1
+Tweet: Today was trauma on top of trauma on top of  trauma in Richmond so I know work is going to be crazy the next two days
+
+Confidence: 0.9847 | True Label: 0 | Predicted: 1
+Tweet: Statistically I'm at more of risk of getting killed by a cop than I am of dying in an airplane accident.
+
+
+[CALIBRATION] Fitting Temperature Scaling & Isotonic Regression...
+
+[CALIBRATION RESULT] Comparing ECE values for LSTM Recurrent Net:
+[LSTM Recurrent Net (Temp Scaling)] Expected Calibration Error (ECE): 0.0197
+[LSTM Recurrent Net (Isotonic)] Expected Calibration Error (ECE): 0.0189
+Individual reliability diagrams saved to figures/ folder.
+------------------------------------------------------------
+
+-> Processing Model: Transformer BERT-Tiny <-
+
+Fine-tuning BERT-Tiny
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at prajjwal1/bert-tiny and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+[BASELINE] Evaluating uncalibrated Transformer BERT-Tiny
+
+=== Transformer BERT-Tiny (Base) - Standard Metrics ===
+Accuracy:  0.8096
+Precision: 0.7651
+Recall:    0.7982
+F1 Score:  0.7813
+[Transformer BERT-Tiny (Base)] Expected Calibration Error (ECE): 0.0368
+
+--- Transformer BERT-Tiny (Base) - Top 3 Highly Confident Errors ---
+Confidence: 0.9362 | True Label: 1 | Predicted: 0
+Tweet: Businesses are deluged with invoices. Make yours stand out with colour or shape and it's likely to rise to the top of t e pay' pileq
+
+Confidence: 0.9344 | True Label: 1 | Predicted: 0
+Tweet: 2Leezy its like you're about to fall down a cliff but you're grabbing my hand but my palms are sweaty ... Why bruh? https://t.co/GrWdr4kuf3
+
+Confidence: 0.9311 | True Label: 1 | Predicted: 0
+Tweet: @godsfirstson1 and she wrapped his coat around herself. It practically engulfed her.
+
+[CALIBRATION] Fitting Temperature Scaling & Isotonic Regression...
+
+[CALIBRATION RESULT] Comparing ECE values for Transformer BERT-Tiny:
+[Transformer BERT-Tiny (Temp Scaling)] Expected Calibration Error (ECE): 0.0383
+[Transformer BERT-Tiny (Isotonic)] Expected Calibration Error (ECE): 0.0214
+Individual reliability diagrams saved to figures/ folder.
+------------------------------------------------------------
+STAGE 2: METHOD 3 — MODEL ENSEMBLE EVALUATION
+[ENSEMBLE] Evaluating Model Ensemble (Average of all 4 architectures)
+
+=== Model Ensemble - Standard Metrics ===
+Accuracy:  0.8267
+Precision: 0.8151
+Recall:    0.7673
+F1 Score:  0.7905
+[Model Ensemble] Expected Calibration Error (ECE): 0.0416
+
+STAGE 3: 'I DON'T KNOW' MECHANISM USING ENSEMBLE PROBABILITIES
+Rejection table for Model Ensemble:
+threshold accuracy coverage rejected_count
+     0.50   82.67%  100.00%              0
+     0.60   86.43%   87.59%            189
+     0.70   89.17%   72.75%            415
+     0.80   91.48%   56.27%            666
+     0.85   91.80%   41.63%            889
+     0.90   95.27%   20.81%           1206
+     0.95  100.00%    2.10%           1491
+
+Saved ensemble trade-off plot to figures/ directory.
+Pipeline finished successfully!
